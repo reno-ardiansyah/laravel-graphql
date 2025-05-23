@@ -50,4 +50,9 @@ class Book extends Model
     {
         return $this->hasMany(BookCopie::class);
     }
+
+    public function bookComments(): HasMany
+    {
+        return $this->hasMany(BookComment::class);
+    }
 }

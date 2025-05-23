@@ -6,18 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class BookCopie extends Model
+class Borrowing extends Model
 {
     protected $fillable = [
-        'book_id',
-        'barcode',
-        'shelf',
-        'status'
+        'user_id',
+        'borrowed_at',
+        'due_date',
+        'returned_at',
+        'status',
     ];
 
-    public function book(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(User::class);
     }
 
     public function borrowingDetails(): HasMany
